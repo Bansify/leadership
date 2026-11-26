@@ -1,13 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ArrowRight, ArrowUpRight, Menu, X } from 'lucide-react';
-import { PROFILE } from '../data/profileData';
+import { PEOPLE, SITE } from '../data/profileData';
 import { ThemeControl } from './ThemeControl';
 
 const links = [
-  { href: '#about', label: 'About' },
-  { href: '#leadership', label: 'Leadership' },
-  { href: '#work', label: 'Projects' },
+  { href: '/', label: 'Leadership' },
+  ...PEOPLE.map((person) => ({ href: `/${person.slug}/`, label: person.name })),
 ];
 
 export function SiteHeader() {
@@ -93,7 +92,7 @@ export function SiteHeader() {
           <div className="mobile-nav-heading">
             <div>
               <span className="mobile-nav-kicker">Explore</span>
-              <strong id="mobile-navigation-title">Yuvkesh Meena</strong>
+              <strong id="mobile-navigation-title">Bansify leadership</strong>
             </div>
             <button
               className="mobile-nav-close"
@@ -118,7 +117,7 @@ export function SiteHeader() {
                 <ArrowRight size={16} aria-hidden="true" />
               </a>
             ))}
-            <a className="mobile-nav-link" href="#contact" onClick={() => closeMenu()}>
+            <a className="mobile-nav-link" href="/" onClick={() => closeMenu()}>
               <span className="mobile-link-number">04</span>
               <span>Get in touch</span>
               <ArrowRight size={16} aria-hidden="true" />
@@ -126,8 +125,8 @@ export function SiteHeader() {
           </nav>
 
           <div className="mobile-nav-footer">
-            <span>Gothwad Tech</span>
-            <a href={PROFILE.githubUrl} target="_blank" rel="noreferrer">
+            <span>{SITE.name}</span>
+            <a href={SITE.githubUrl} target="_blank" rel="noreferrer">
               View public repositories <ArrowUpRight size={15} aria-hidden="true" />
             </a>
           </div>
@@ -141,11 +140,11 @@ export function SiteHeader() {
     <>
       <header className="site-header">
         <div className="header-inner">
-          <a className="brand" href="#top" aria-label="Yuvkesh Meena profile, top of page">
+          <a className="brand" href="/" aria-label="Bansify leadership, overview">
             <img src="/assets/logo.png" alt="" width="42" height="42" />
             <span className="brand-copy">
-              <span className="brand-name">Gothwad Tech</span>
-              <span className="brand-caption">Yuvkesh Meena</span>
+              <span className="brand-name">{SITE.name}</span>
+              <span className="brand-caption">Leadership</span>
             </span>
           </a>
 
@@ -159,8 +158,8 @@ export function SiteHeader() {
 
           <div className="header-actions">
             <ThemeControl />
-            <a className="header-contact" href="#contact">
-              Get in touch <ArrowUpRight size={15} aria-hidden="true" />
+            <a className="header-contact" href={SITE.orgUrl} target="_blank" rel="noopener noreferrer">
+              bansify.com <ArrowUpRight size={15} aria-hidden="true" />
             </a>
             <button
               className="menu-toggle"

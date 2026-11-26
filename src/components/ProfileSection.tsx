@@ -1,43 +1,37 @@
-import { ArrowUpRight } from 'lucide-react';
-import { PROFILE } from '../data/profileData';
+import type { Person } from '../data/profileData';
 
-const profileFacts = [
-  { label: 'Full name', value: PROFILE.name },
-  { label: 'Role', value: PROFILE.role },
-  { label: 'Organization', value: PROFILE.organization },
-  { label: 'Company founder', value: PROFILE.founder },
-  { label: 'Born in', value: PROFILE.birthplace },
-];
-
-export function ProfileSection() {
+/** One person: name, role, who they report to, then the three written sections. */
+export function ProfileSection({ person }: { person: Person }) {
   return (
-    <section className="profile-section section-space" id="about" aria-labelledby="about-title">
+    <section className="profile-section section-space" aria-labelledby="person-name">
       <div className="page-container profile-layout">
         <div className="section-aside">
-          <p className="eyebrow">The profile</p>
-          <p className="aside-note">A concise introduction to Yuvkesh Meena’s role at Gothwad Tech.</p>
+          <p className="eyebrow">{person.role}</p>
+          <p className="aside-note">Reports to {person.reportsTo}.</p>
         </div>
 
         <div className="profile-main">
-          <h2 id="about-title">Leading a connected technology portfolio.</h2>
+          <h1 id="person-name">{person.name}</h1>
+
           <div className="profile-prose">
-            <p className="profile-lead">{PROFILE.introduction}</p>
-            <p>{PROFILE.biography}</p>
+            <h2>What they own</h2>
+            <ul>
+              {person.owns.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+
+            <h2>Ninety-day aim</h2>
+            <p>{person.aim}</p>
+
+            <h2>What is not theirs</h2>
+            <p>{person.boundary}</p>
           </div>
 
-          <a className="inline-arrow-link" href={PROFILE.githubUrl} target="_blank" rel="noopener noreferrer">
-            Explore Gothwad Tech’s public work <ArrowUpRight size={16} aria-hidden="true" />
+          <a className="inline-arrow-link" href="/">
+            Back to leadership
           </a>
         </div>
-
-        <dl className="profile-facts" aria-label="Yuvkesh Meena profile facts">
-          {profileFacts.map((fact) => (
-            <div className="profile-fact" key={fact.label}>
-              <dt>{fact.label}</dt>
-              <dd>{fact.value}</dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   );

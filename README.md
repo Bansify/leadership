@@ -1,49 +1,48 @@
-# CEO of Gothwad Tech — Yuvkesh Meena profile
+# Bansify — Leadership
 
-A responsive, English-language profile for **Yuvkesh Meena, Chief Executive Officer of Gothwad Tech**. Gothwad Tech was founded by **Pawan Gothwad**. This site presents Yuvkesh’s role, background and leadership context, along with a curated index of Gothwad Tech products linked to their public repositories and developer documentation.
+The leadership page for Bansify, served at **https://leadership.bansify.com**.
 
-The profile is a static React/Vite site with no API keys, backend, database or contact-form data collection. Its production build prerenders the page into `dist/index.html` so search and social crawlers receive the biography and project catalogue in the initial HTML.
+Five people, five roles, one company at the earliest possible stage. Each person has a page
+that states what they own, their ninety-day aim, and what is not theirs.
 
-## Local development
+| Route | Person | Role | Reports to |
+| --- | --- | --- | --- |
+| `/` | — | overview, five cards | — |
+| `/founder/` | Pawan Kumar Meena | Founder & CTO | nobody |
+| `/cofounder/` | Vishnu Meena | Co-founder & COO | Founder & CTO |
+| `/ceo/` | Krishna Namdev | CEO & Founding Engineer | Founder & CTO |
+| `/cmo/` | Gaurav | CMO | Founder & CTO |
+| `/engineering/` | Yuvkesh Meena | Founding Engineer | Founder & CTO |
 
-Use Node.js 22.12 or newer.
+## Rules the site holds to
+
+- Bansify is **not a registered company**; the footer says so on every page, in the HTML.
+- "Founding Engineer" is a date, not a rank — the CEO and the Founding Engineer hold the same
+  title. Nobody is described as junior, an intern, a contributor or a future executive.
+- No photographs, no analytics, no cookies, no contact form, no `@bansify.com` address (the
+  zone has no MX record).
+- `/engineering/` carries `noindex, follow` and is left out of `sitemap.xml`; `robots.txt`
+  does not disallow it, so a crawler can fetch the page and read the tag.
+- JSON-LD is an `Organization` on the overview only. There is no `Person` schema.
+
+## Build and deploy
 
 ```bash
 npm install
-npm run dev
+npm run build          # vite build, then scripts/prerender.mjs writes six static HTML files
 ```
 
-Vite listens on `0.0.0.0:3000`. No environment variables are required.
+Cloudflare Pages: project `leadership`, production branch `main`, build `npm run build`,
+output `dist`. `public/_redirects` sends every path to `index.html` so a deep link survives a
+refresh; the prerendered directories serve their own file first.
+
+## Verifying a deploy
 
 ```bash
-npm run lint
-npm run build
-npm run preview
+curl -sI https://leadership.bansify.com/ceo/
+curl -s  https://leadership.bansify.com/ceo/ | grep -c "Krishna Namdev"
+CEO_PAGE=https://leadership.bansify.com/ceo/
+curl -s "$CEO_PAGE" | grep -ci "the engineering lead"   # 0
+curl -s  https://leadership.bansify.com/engineering/ | grep -i noindex
+curl -s  https://leadership.bansify.com/sitemap.xml | grep -c "<loc>"
 ```
-
-`npm run build` type-checks the project, builds the Vite assets and prerenders the profile. The deployable output is `dist/`.
-
-## Deploy to Cloudflare Pages
-
-Create a Pages project from this repository and use:
-
-| Setting | Value |
-| --- | --- |
-| Framework preset | Vite |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-| Root directory | `/` |
-| Node.js version | `22` |
-
-Add `ceo.gothwadtech.com` as a custom domain in Cloudflare Pages and follow the DNS instructions shown in the dashboard. After deployment, check the homepage, `https://ceo.gothwadtech.com/robots.txt`, `https://ceo.gothwadtech.com/sitemap.xml` and `https://ceo.gothwadtech.com/llms.txt`.
-
-## Content and assets
-
-- Profile facts and product summaries: `src/data/profileData.ts`
-- Search and social metadata, canonical URL and Person/ProfilePage structured data: `index.html`
-- Project cards link to Gothwad Tech's public source repositories; descriptions are intentionally limited to documented scope.
-- The official Gothwad Tech logo from the source repository’s `public/assets` root is `public/assets/logo.png`. The matching ICO, Apple touch icon and 192/512 px app icons are included in `public/assets/` and referenced by the page and `public/site.webmanifest`; nested source asset folders are intentionally not copied.
-- The supplied CEO portrait is optimized as `public/assets/yuvkesh-meena.webp`, with a JPEG fallback. The social preview uses a 1200 × 630 JPEG card at `public/og-yuvkesh-meena.jpg`.
-- `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt` and `public/_headers` are copied to the Pages output by Vite.
-
-The product index is curated, not a live GitHub API feed. Check each linked repository for current release availability, licensing and implementation details. The page does not claim that repository ownership means one person authored every line of code.
