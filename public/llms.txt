@@ -1,37 +1,20 @@
-# CEO of Gothwad Tech — Yuvkesh Meena
+# Bansify — Leadership
 
-> Official profile of Yuvkesh Meena, Chief Executive Officer (CEO) of Gothwad Tech.
+> Bansify builds consumer cloud software — Account, Mail and AI. Five people, five roles, one
+> company at the earliest possible stage.
 
-## Canonical identity
+## Pages
 
-- Preferred site name: CEO of Gothwad Tech
-- Canonical profile: https://ceo.gothwadtech.com/
-- Name: Yuvkesh Meena
-- Role: Chief Executive Officer (CEO) of Gothwad Tech
-- Company founder: Pawan Gothwad
-- Birthplace: Dausa, Rajasthan, India
-- Official portrait (WebP): https://ceo.gothwadtech.com/assets/yuvkesh-meena.webp
-- Portrait fallback (JPEG): https://ceo.gothwadtech.com/assets/yuvkesh-meena.jpg
-- Portrait description: Yuvkesh Meena, Chief Executive Officer of Gothwad Tech.
-- Social preview image: https://ceo.gothwadtech.com/og-yuvkesh-meena.jpg
+- https://leadership.bansify.com/ — overview, five cards
+- https://leadership.bansify.com/founder/ — Pawan Kumar Meena, Founder & CTO
+- https://leadership.bansify.com/cofounder/ — Vishnu Meena, Co-founder & COO
+- https://leadership.bansify.com/ceo/ — Krishna Namdev, CEO & Founding Engineer
+- https://leadership.bansify.com/cmo/ — Gaurav, CMO
+- https://leadership.bansify.com/engineering/ — Yuvkesh Meena, Founding Engineer
 
-## Profile
+## Notes
 
-Yuvkesh Meena is the Chief Executive Officer of Gothwad Tech, a company founded by Pawan Gothwad. Born in Dausa, Rajasthan, India, Yuvkesh leads work across Gothwad Tech’s web and mobile product portfolio.
-
-## Gothwad Tech portfolio
-
-The public repository portfolio includes products and projects across identity and productivity, communication, media and Android devices, developer tools, remote access, and education. Selected repositories include Gothwad Accounts, Gothwad Mail, Gothwad Drive, GrixChat, Indogram, GXChat India, Gothwad Meet, Kiwi Store, PlusTube, Gothwad Browser, Gothwad AI Studio, Gothwad Education, and Gothwad Remote Desktop.
-
-## Official references
-
-- Gothwad Tech public repositories: https://github.com/GothwadTech
-- Gothwad Tech developer documentation: https://docs.gothwadtech.com/
-- XML sitemap: https://ceo.gothwadtech.com/sitemap.xml
-
-## Source notes
-
-- Yuvkesh Meena’s role and birthplace, and Pawan Gothwad’s founder role, are supplied for this official profile.
-- Product summaries are based on public Gothwad Tech repository descriptions and developer documentation.
-- Public repositories can include companion applications, forks, prototypes, documentation, and infrastructure. Release details, implementation, and licenses vary by project; check each linked source repository.
-- This page does not claim that one person authored every line of code.
+- Bansify is not yet a registered company. The titles are internal designations, not
+  statutory posts or directorships.
+- Each person's page states what they own, their ninety-day aim, and what is not theirs.
+- Organization: https://www.bansify.com · Source: https://github.com/Bansify

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ceo.gothwadtech.com/sitemap.xml
+Sitemap: https://leadership.bansify.com/sitemap.xml

@@ -1,31 +1,25 @@
-import { ArrowUpRight } from 'lucide-react';
-import { PROFILE } from '../data/profileData';
+import { SITE } from '../data/profileData';
 
 export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="page-container footer-inner">
-        <a className="footer-brand" href="#top">
-          <img src="/assets/logo.png" alt="" width="34" height="34" />
+        <a className="footer-brand" href="/">
           <span>
-            <strong>Yuvkesh Meena</strong>
-            <small>Chief Executive Officer, Gothwad Tech</small>
+            <strong>{SITE.name}</strong>
+            <small>Leadership</small>
           </span>
         </a>
 
-        <p className="footer-note">A professional profile and selected record of Gothwad Tech’s work.</p>
+        <p className="footer-note">{SITE.disclaimer}</p>
 
         <div className="footer-links">
-          <a href={PROFILE.companyUrl} target="_blank" rel="noopener noreferrer">
-            Gothwad Tech <ArrowUpRight size={13} aria-hidden="true" />
+          <a href={SITE.orgUrl} target="_blank" rel="noopener noreferrer">
+            bansify.com
           </a>
-          <a href={PROFILE.githubUrl} target="_blank" rel="noopener noreferrer">
-            GitHub <ArrowUpRight size={13} aria-hidden="true" />
+          <a href={SITE.githubUrl} target="_blank" rel="noopener noreferrer">
+            GitHub
           </a>
-          <a href={PROFILE.docsUrl} target="_blank" rel="noopener noreferrer">
-            Documentation <ArrowUpRight size={13} aria-hidden="true" />
-          </a>
-          <a href="#top">Back to top ↑</a>
         </div>
       </div>
     </footer>
